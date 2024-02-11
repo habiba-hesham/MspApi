@@ -12,5 +12,7 @@ namespace MspApi.Models
         public DbSet<Crew> Crew { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<SuperAdmin> SuperAdmins { get; set; }
+        public DbSet<WaitingUser> WaitingUsers { get; set; }
+        public DbSet<Session> Sessions { get; set; }
     }
 }

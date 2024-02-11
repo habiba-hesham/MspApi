@@ -10,20 +10,19 @@ namespace MspApi.Models
         [StringLength(100)]
         public string Name { get; set; }
 
-        [Url]
-        public string SessionPDF { get; set; }
+        [Required]
+        [StringLength(5000)]
+        public string Description { get; set; }
 
-        [Url]
-        public string Video { get; set; }
+        
 
-
-        public virtual List<Crew> Crew { get; set; }
-        public virtual List<Admin> Admin { get; set; }
+       // public virtual List<Crew> Crew { get; set; }
+       // public virtual List<Admin> Admin { get; set; }
         //[JsonIgnore]
 
-        [ForeignKey("SuperAdmin")]
-        public int SuperAdminID { get; set; }
-        public virtual SuperAdmin SuperAdmin { get; set; }
+       // [ForeignKey("SuperAdmin")]
+       // public int SuperAdminID { get; set; }
+       // public virtual SuperAdmin SuperAdmin { get; set; }
 
 
 
