@@ -12,5 +12,8 @@ namespace MspApi.Dtos
         [StringLength(5000)]
         public string Description { get; set; }
 
+        [Url]
+        public string Image { get; set; }
+
     }
 }

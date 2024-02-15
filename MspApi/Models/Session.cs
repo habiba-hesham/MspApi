@@ -14,9 +14,7 @@ namespace MspApi.Models
         [Url]
         public string Video { get; set; }
 
+        public byte CommitteeId { get; set; }
         public Committee Committee { get; set; }
-
-        [StringLength(100)]
-        public string Name { get; set; }
     }
 }
