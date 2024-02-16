@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MspApi.Dtos;
 using MspApi.Models;
@@ -10,7 +9,7 @@ namespace MspApi.Controllers
     [ApiController]
     public class CommitteesController : ControllerBase
     {
-        private readonly ApplicationDbContext   _context;
+        private readonly ApplicationDbContext _context;
 
         public CommitteesController(ApplicationDbContext context)
         {
@@ -27,8 +26,11 @@ namespace MspApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCommittee(CommitteeDto dto)
         {
-            var committee = new Committee { Name = dto.Name, 
-                Description = dto.Description };
+            var committee = new Committee
+            {
+                Name = dto.Name,
+                Description = dto.Description
+            };
 
             await _context.AddAsync(committee);
 

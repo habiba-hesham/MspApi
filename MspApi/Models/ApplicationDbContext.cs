@@ -7,6 +7,7 @@ namespace MspApi.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Committee> Committees { get; set; }
         public DbSet<Crew> Crew { get; set; }
