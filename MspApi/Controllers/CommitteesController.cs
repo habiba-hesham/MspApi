@@ -28,7 +28,7 @@ namespace MspApi.Controllers
         public async Task<IActionResult> GetByCommitteeId(byte id)
         {
             var users = await _context.Users
-                .Where(u => u.CommitteeId == id && u.Position.ToLower() != "member")
+                .Where(u => u.CommitteeId == id && u.Position.ToLower() != "member" && u.Waiting == "No")
                 .OrderByDescending(u => u.Role)
                 .Include(c => c.Committee)
                 .ToListAsync();
@@ -41,7 +41,7 @@ namespace MspApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCommittee(CommitteeDto dto)
+        public async Task<IActionResult> AddCommittee([FromForm]CommitteeDto dto)
         {
             var committee = new Committee { Name = dto.Name, 
                 Description = dto.Description,
@@ -55,7 +55,7 @@ namespace MspApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCommittee(byte id, CommitteeDto dto)
+        public async Task<IActionResult> UpdateCommittee(byte id, [FromForm]CommitteeDto dto)
         {
             var committee = await _context.Committees.FindAsync(id);
 

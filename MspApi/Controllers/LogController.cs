@@ -21,7 +21,7 @@ namespace MspApi.Controllers
         [Route("/login")]
         public async Task<IActionResult> Login([FromForm] string mail, [FromForm] string pass)
         {
-            var user = _context.Users.FirstOrDefaultAsync(u=>u.Gmail == mail && u.Password == pass);
+            var user = _context.Users.FirstOrDefaultAsync(u => u.Gmail == mail && u.Password == pass && u.Waiting == "No");
 
             if (user == null) 
             { 

@@ -10,6 +10,7 @@ namespace MspApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public byte Id { get; set; }
 
+        [Required]
         [MaxLength(50), MinLength(2)]
         [RegularExpression(@"^[a-zA-Z0-9@,._\s]+$", 
             ErrorMessage = "in Name Please enter characters like (a~z, A~Z, 0~9, @, _, ., ,, space) not more")]
@@ -26,7 +27,7 @@ namespace MspApi.Models
 
        // public virtual List<Crew> Crew { get; set; }
        // public virtual List<Admin> Admin { get; set; }
-        //[JsonIgnore]
+       //[JsonIgnore]
 
        // [ForeignKey("SuperAdmin")]
        // public int SuperAdminID { get; set; }

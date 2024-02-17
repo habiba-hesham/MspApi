@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MspApi.Models
 {
@@ -10,6 +10,10 @@ namespace MspApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(50, MinimumLength = 2)]
+        [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = "Please enter characters like (a~z , A~Z ) and spaces, not more")]
+        public string Name { get; set; }
 
         [Required]
         [StringLength(5000)]
@@ -27,7 +31,6 @@ namespace MspApi.Models
         [Url]
         public string FormLink { get; set; }
 
-
         [Url]
         [Required]
         public string Videos { get; set; }
@@ -35,9 +38,6 @@ namespace MspApi.Models
         public string URLPhoto { get; set; }
 
         ///////////////////////////////////////////////////////////////////
-       // public List<String> URLALLPhoto { get; set; }
-
-
-
+        // public List<String> URLALLPhoto { get; set; }
     }
 }
